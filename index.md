@@ -18,7 +18,7 @@ J'ai quitté mon poste avec une conviction : je devais maîtriser par moi-même 
 
 Ici, un aperçu des projets concrets qui ont marqué ce parcours de R&D.
 
-### Projet Robo-Pointer : Cycle Complet de la Mécatronique 🦾
+### Projet Robo-Pointer : Cycle Complet de la Mécatronique
 
 <a href="[LIEN VIDÉO YOUTUBE/VIMEO]" target="_blank">
   <img src="[LIEN IMAGE THUMBNAIL DE LA VIDÉO]" alt="Démonstration du Robo-Pointer" style="max-width:100%;">
@@ -30,7 +30,7 @@ Ici, un aperçu des projets concrets qui ont marqué ce parcours de R&D.
 
 **[Voir le code et la documentation sur GitHub →](https://github.com/bkoensgen/robo-pointer-so100)**
 
-### Projet AudioBuy : Pipeline de Données et Analyse par LLM 🧠
+### Projet AudioBuy : Pipeline de Données et Analyse par LLM
 
 ```mermaid
 graph TD
@@ -105,13 +105,38 @@ graph TD
 
 **Technologies :** `Python` `LLMs (OpenAI API)` `Web Scraping` `Google Vision (OCR)` `Bases de Données (SQL)`
 
-**[Voir la présentation technique sur GitHub →](https://github.com/bkoensgen/Audiobuy-showcase.git)**
+**[Voir la présentation technique sur GitHub →](https://github.com/bkoensgen/Audiobuy-showcase)**
 
-### Contribution Nav2 : Optimisation pour la Robotique Professionnelle 🏆
+### Contribution Nav2 : Optimisation des Ressources en Robotique Pro
 
-![Snippet de code Nav2]([LIEN IMAGE SNIPPET AVANT/APRÈS])
+Pour résoudre un problème de surconsommation énergétique dans un standard mondial de la robotique, j'ai conçu et implémenté une nouvelle API au cœur de Nav2. Cette solution permet d'activer les nœuds de détection uniquement lorsque c'est nécessaire, optimisant ainsi drastiquement les ressources (CPU, batterie) des robots en mission.
 
-> Pour résoudre un problème d'inefficacité énergétique dans un standard mondial de la robotique, j'ai implémenté une nouvelle API au cœur de Nav2. Cette solution permet d'activer les nœuds de détection à la demande, optimisant ainsi les ressources des robots embarqués.
+Ci-dessous, un extrait de la modification apportée au cœur du serveur de docking, montrant l'ajout des appels pour démarrer et arrêter le processus de détection.
+
+```diff
+// Extrait de nav2_docking/opennav_docking/src/docking_server.cpp
+
+void DockingServer::doInitialPerception(Dock * dock, geometry_msgs::msg::PoseStamped & dock_pose)
+{
+  publishDockingFeedback(DockRobot::Feedback::INITIAL_PERCEPTION);
+
++ if (!dock->plugin->startDetectionProcess()) {
++   throw opennav_docking_core::FailedToDetectDock("Failed to start the detection process.");
++ }
+
+  rclcpp::Rate loop_rate(controller_frequency_);
+  auto start = this->now();
+  auto timeout = rclcpp::Duration::from_seconds(initial_perception_timeout_);
+  while (!dock->plugin->getRefinedPose(dock_pose, dock->id)) {
+    if (this->now() - start > timeout) {
+      throw opennav_docking_core::FailedToDetectDock(
+        "Failed initial dock detection: Timeout exceeded");
+    }
+// ... (code de la boucle)
+}
+```
+
+> Face à une problématique de surconsommation énergétique dans un standard mondial de la robotique, j'ai conçu et implémenté une nouvelle API au cœur de Nav2. Cette solution permet d'activer les nœuds de détection uniquement lorsque c'est nécessaire, optimisant ainsi drastiquement les ressources (CPU, batterie) des robots en mission.
 
 **Technologies :** `C++` `ROS 2` `Architecture Logicielle` `Tests Unitaires (GTest)`
 
