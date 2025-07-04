@@ -28,7 +28,7 @@ Ici, un aperçu des projets concrets qui ont marqué ce parcours de R&D.
 
 **Technologies :** `ROS 2` `C++` `Python` `OpenCV` `Conception CAO (SolidWorks/Inventor)` `Impression 3D`
 
-**[Voir le code et la documentation sur GitHub] →** `https://github.com/bkoensgen/robo-pointer-so100`
+**[Voir le code et la documentation sur GitHub →](https://github.com/bkoensgen/robo-pointer-so100)**
 
 ### Projet AudioBuy : Pipeline de Données et Analyse par LLM 🧠
 
@@ -105,7 +105,7 @@ graph TD
 
 **Technologies :** `Python` `LLMs (OpenAI API)` `Web Scraping` `Google Vision (OCR)` `Bases de Données (SQL)`
 
-**[Voir la présentation technique sur GitHub] →** `[https://github.com/bkoensgen/Audiobuy-showcase.git]`
+**[Voir la présentation technique sur GitHub →](https://github.com/bkoensgen/Audiobuy-showcase.git)**
 
 ### Contribution Nav2 : Optimisation pour la Robotique Professionnelle 🏆
 
@@ -115,7 +115,7 @@ graph TD
 
 **Technologies :** `C++` `ROS 2` `Architecture Logicielle` `Tests Unitaires (GTest)`
 
-**[Voir la Pull Request sur GitHub (#5218)] →** `https://github.com/ros-navigation/navigation2/pull/5218`
+**[Voir la Pull Request sur GitHub (#5218) →](https://github.com/ros-navigation/navigation2/pull/5218)**
 
 ---
 
