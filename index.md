@@ -4,33 +4,31 @@
 
 # Benjamin Koensgen
 
-## Ingénieur en Intelligence Artificielle & Robotique
+## Ingénieur R&D en IA & Robotique
 
-*De la conception de pipelines IA à leur incarnation physique en robotique.*
+Mon travail est guidé par un principe : un modèle, qu'il soit d'IA ou de physique, ne révèle sa vraie valeur qu'une fois confronté à la réalité brute et imprévisible du monde réel. C'est cette confrontation qui me passionne.
 
----
-
-J'ai quitté mon poste avec une conviction : je devais maîtriser par moi-même les technologies d'IA qui commençaient à tout redéfinir. Mon approche a été simple : d'abord le "cerveau" logiciel, puis le "corps" physique.
+Il y a un an, j'ai quitté mon poste pour me consacrer entièrement à la maîtrise du cycle complet de la robotique moderne : du "cerveau" logiciel à son incarnation dans un "corps" physique.
 
 ---
 
 ## Projets & Réalisations
 
-Ici, un aperçu des projets concrets qui ont marqué ce parcours de R&D.
+Chaque projet a été un laboratoire pour résoudre le même défi fondamental : comment construire un pont robuste entre un modèle parfait et une réalité imparfaite.
 
-### Projet Robo-Pointer : Cycle Complet de la Mécatronique
+### Projet Robo-Pointer : Donner un Corps à l'Intelligence
 
-<a href="[LIEN VIDÉO YOUTUBE/VIMEO]" target="_blank">
-  <img src="[LIEN IMAGE THUMBNAIL DE LA VIDÉO]" alt="Démonstration du Robo-Pointer" style="max-width:100%;">
-</a>
+*(LIEN VERS UNE VIDÉO DE DÉMONSTRATION ICI)*
 
-> J'ai conçu, imprimé en 3D et assemblé ce bras 6-axes, puis développé le pipeline ROS 2 de A à Z pour le contrôle et le suivi d'objet par vision. C'est la démonstration de ma capacité à gérer l'intégralité du cycle mécatronique.
+> Ce projet a été mon champ de bataille avec la physique. Ma première tentative de contrôle, basée sur une logique simple, a donné un résultat chaotique : un robot instable, aux mouvements erratiques. Cette "douleur" a été la meilleure des leçons. Elle m'a forcé à aller au-delà du code pour doter le logiciel d'une véritable **compréhension de son propre corps**.
+>
+> La solution a été de centraliser l'intelligence dans un contrôleur qui modélise la cinématique du bras, qui respecte ses limites articulaires, et qui **compense activement une force bien réelle : la gravité**. C'est le passage concret de la commande naïve à la physique appliquée, transformant l'instabilité en un suivi contrôlé.
 
-**Technologies :** `ROS 2` `C++` `Python` `OpenCV` `Conception CAO (SolidWorks/Inventor)` `Impression 3D`
+**Technologies :** `ROS 2` `Python` `OpenCV` `YOLOv8` `Conception CAO` `Impression 3D`
 
-**[Voir le code et la documentation sur GitHub →](https://github.com/bkoensgen/robo-pointer-so100)**
+**[Voir le code et l'architecture sur GitHub →](https://github.com/bkoensgen/robo-pointer-so100)**
 
-### Projet AudioBuy : Pipeline de Données et Analyse par LLM
+### Projet AudioBuy : Dompter le Chaos des Données du Monde Réel
 
 ```mermaid
 graph TD
@@ -100,43 +98,19 @@ graph TD
     class Alert success
     class Reject failure
 ```
-
-> Un système autonome développé pour identifier des opportunités de marché en temps réel. Le pipeline scrape les données (texte et images), les analyse via un LLM pour en extraire la structure, et les compare à une base de données de prix pour une décision automatisée.
+> Ce projet n'était pas un simple exercice d'appel à une API. C'était une immersion dans le problème le plus courant et le plus critique des systèmes d'IA : la **qualité des données du monde réel, qui sont par nature sales, incomplètes et non-structurées**. J'ai bâti une pipeline complète pour transformer ce chaos en une structure exploitable.
+>
+> Mais la leçon la plus importante a été de traiter le LLM non pas comme une boîte magique, mais comme un **outil probabiliste**. Le composant le plus critique de ce projet n'est donc pas le LLM lui-même, mais le **benchmark sur-mesure que j'ai créé pour quantifier la confiance** dans ses résultats. C'est ce qui garantit qu'aucune décision économique n'est prise sur la base d'une donnée incertaine.
 
 **Technologies :** `Python` `LLMs (OpenAI API)` `Web Scraping` `Google Vision (OCR)` `Bases de Données (SQL)`
 
 **[Voir la présentation technique sur GitHub →](https://github.com/bkoensgen/Audiobuy-showcase)**
 
-### Contribution Nav2 : Optimisation des Ressources en Robotique Pro
+### Contribution Nav2 : Confronter le Logiciel à la Réalité Énergétique
 
-Pour résoudre un problème de surconsommation énergétique dans un standard mondial de la robotique, j'ai conçu et implémenté une nouvelle API au cœur de Nav2. Cette solution permet d'activer les nœuds de détection uniquement lorsque c'est nécessaire, optimisant ainsi drastiquement les ressources (CPU, batterie) des robots en mission.
-
-Ci-dessous, un extrait de la modification apportée au cœur du serveur de docking, montrant l'ajout des appels pour démarrer et arrêter le processus de détection.
-
-```diff
-// Extrait de nav2_docking/opennav_docking/src/docking_server.cpp
-
-void DockingServer::doInitialPerception(Dock * dock, geometry_msgs::msg::PoseStamped & dock_pose)
-{
-  publishDockingFeedback(DockRobot::Feedback::INITIAL_PERCEPTION);
-
-+ if (!dock->plugin->startDetectionProcess()) {
-+   throw opennav_docking_core::FailedToDetectDock("Failed to start the detection process.");
-+ }
-
-  rclcpp::Rate loop_rate(controller_frequency_);
-  auto start = this->now();
-  auto timeout = rclcpp::Duration::from_seconds(initial_perception_timeout_);
-  while (!dock->plugin->getRefinedPose(dock_pose, dock->id)) {
-    if (this->now() - start > timeout) {
-      throw opennav_docking_core::FailedToDetectDock(
-        "Failed initial dock detection: Timeout exceeded");
-    }
-// ... (code de la boucle)
-}
-```
-
-> Face à une problématique de surconsommation énergétique dans un standard mondial de la robotique, j'ai conçu et implémenté une nouvelle API au cœur de Nav2. Cette solution permet d'activer les nœuds de détection uniquement lorsque c'est nécessaire, optimisant ainsi drastiquement les ressources (CPU, batterie) des robots en mission.
+> Un système de navigation robotique, aussi parfait soit-il en simulation, se heurte à une contrainte physique inévitable : **une batterie qui se vide**. Le paradigme "toujours actif" de la perception est un luxe que les robots en mission ne peuvent pas se permettre.
+>
+> Face à ce problème de surconsommation, ma contribution a été de concevoir et d'implémenter une nouvelle API au cœur de Nav2, un standard mondial de la robotique. Cette solution permet une **activation à la demande des processus de détection**, optimisant ainsi drastiquement les ressources (CPU, énergie) sans compromettre la performance de la mission.
 
 **Technologies :** `C++` `ROS 2` `Architecture Logicielle` `Tests Unitaires (GTest)`
 
@@ -146,6 +120,6 @@ void DockingServer::doInitialPerception(Dock * dock, geometry_msgs::msg::PoseSta
 
 ## Contact & Liens
 
-N'hésitez pas à me contacter.
+Je suis toujours ouvert à discuter de défis techniques passionnants.
 
 [LinkedIn](https://www.linkedin.com/in/benjamin-koensgen) | [GitHub](https://github.com/bkoensgen) | [E-mail](mailto:bkoensgen@gmail.com)
