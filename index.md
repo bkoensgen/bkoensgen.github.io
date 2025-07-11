@@ -6,29 +6,29 @@
 
 ## Ingénieur R&D en IA & Robotique
 
-Mon travail est guidé par un principe : un modèle, qu'il soit d'IA ou de physique, ne révèle sa vraie valeur qu'une fois confronté à la réalité brute et imprévisible du monde réel. C'est cette confrontation qui me passionne.
+Mon travail se concentre sur un seul défi : faire interagir des systèmes logiciels avec un monde physique désordonné et imprévisible.
 
-Il y a un an, j'ai quitté mon poste pour me consacrer entièrement à la maîtrise du cycle complet de la robotique moderne : du "cerveau" logiciel à son incarnation dans un "corps" physique.
+Il y a un an, j'ai mis ma carrière en pause pour construire, par la pratique, les deux piliers de ce domaine : le "cerveau" logiciel qui traite l'information, et le "corps" robotique qui agit sur cette information.
 
 ---
 
 ## Projets & Réalisations
 
-Chaque projet a été un laboratoire pour résoudre le même défi fondamental : comment construire un pont robuste entre un modèle parfait et une réalité imparfaite.
+Chaque projet a été une occasion d'apprendre à faire le pont entre un plan parfait et une réalité qui ne l'est jamais.
 
-### Projet Robo-Pointer : Donner un Corps à l'Intelligence
+### Projet Robo-Pointer : Apprendre la Physique par la Pratique
 
 *(LIEN VERS UNE VIDÉO DE DÉMONSTRATION ICI)*
 
-> Ce projet a été mon champ de bataille avec la physique. Ma première tentative de contrôle, basée sur une logique simple, a donné un résultat chaotique : un robot instable, aux mouvements erratiques. Cette "douleur" a été la meilleure des leçons. Elle m'a forcé à aller au-delà du code pour doter le logiciel d'une véritable **compréhension de son propre corps**.
+> Ce projet a commencé avec un objectif simple et une réalité humiliante : mon robot était complètement instable. Une boucle de contrôle basique ne suffisait pas. Les mouvements étaient erratiques et imprévisibles.
 >
-> La solution a été de centraliser l'intelligence dans un contrôleur qui modélise la cinématique du bras, qui respecte ses limites articulaires, et qui **compense activement une force bien réelle : la gravité**. C'est le passage concret de la commande naïve à la physique appliquée, transformant l'instabilité en un suivi contrôlé.
+> La seule façon d'avancer était d'enseigner un peu de physique au logiciel. J'ai dû concevoir un contrôleur centralisé qui comprenait la géométrie du bras (sa cinématique) et qui pouvait **compenser activement la force de la gravité**. Le simple fait d'ajouter ce modèle physique interne a transformé les oscillations chaotiques en un mouvement contrôlé et dirigé.
 
 **Technologies :** `ROS 2` `Python` `OpenCV` `YOLOv8` `Conception CAO` `Impression 3D`
 
 **[Voir le code et l'architecture sur GitHub →](https://github.com/bkoensgen/robo-pointer-so100)**
 
-### Projet AudioBuy : Dompter le Chaos des Données du Monde Réel
+### Projet AudioBuy : Extraire un Signal Clair du Bruit
 
 ```mermaid
 graph TD
@@ -98,19 +98,19 @@ graph TD
     class Alert success
     class Reject failure
 ```
-> Ce projet n'était pas un simple exercice d'appel à une API. C'était une immersion dans le problème le plus courant et le plus critique des systèmes d'IA : la **qualité des données du monde réel, qui sont par nature sales, incomplètes et non-structurées**. J'ai bâti une pipeline complète pour transformer ce chaos en une structure exploitable.
+> Ma première épreuve a été de dompter le chaos des annonces en ligne. Les données étaient un mélange de textes et d'images, pleines de fautes de frappe, d'informations manquantes et d'incohérences.
 >
-> Mais la leçon la plus importante a été de traiter le LLM non pas comme une boîte magique, mais comme un **outil probabiliste**. Le composant le plus critique de ce projet n'est donc pas le LLM lui-même, mais le **benchmark sur-mesure que j'ai créé pour quantifier la confiance** dans ses résultats. C'est ce qui garantit qu'aucune décision économique n'est prise sur la base d'une donnée incertaine.
+> Le cœur du projet n'a pas été de simplement utiliser un LLM, mais d'apprendre à s'en méfier. Parce que ces modèles sont probabilistes, j'ai réalisé que l'étape la plus critique était la validation. J'ai donc bâti mon propre **benchmark pour répondre à une question simple : "Puis-je faire confiance à ce résultat ?"**. Cela garantit qu'une décision économique n'est jamais prise sur une donnée dont la fiabilité n'a pas été mesurée.
 
 **Technologies :** `Python` `LLMs (OpenAI API)` `Web Scraping` `Google Vision (OCR)` `Bases de Données (SQL)`
 
 **[Voir la présentation technique sur GitHub →](https://github.com/bkoensgen/Audiobuy-showcase)**
 
-### Contribution Nav2 : Confronter le Logiciel à la Réalité Énergétique
+### Contribution Nav2 : Adapter le Logiciel aux Contraintes du Monde Réel
 
-> Un système de navigation robotique, aussi parfait soit-il en simulation, se heurte à une contrainte physique inévitable : **une batterie qui se vide**. Le paradigme "toujours actif" de la perception est un luxe que les robots en mission ne peuvent pas se permettre.
+> En simulation, un robot peut se permettre d'avoir tous ses capteurs actifs en permanence. Dans le monde réel, cette approche se heurte à une contrainte simple : **la durée de vie d'une batterie**.
 >
-> Face à ce problème de surconsommation, ma contribution a été de concevoir et d'implémenter une nouvelle API au cœur de Nav2, un standard mondial de la robotique. Cette solution permet une **activation à la demande des processus de détection**, optimisant ainsi drastiquement les ressources (CPU, énergie) sans compromettre la performance de la mission.
+> Mon travail sur Nav2, un standard de la navigation robotique, a été de résoudre ce conflit. J'ai conçu et intégré une nouvelle API permettant au système de **piloter l'activation des capteurs à la demande**. Cette modification, au cœur du framework, s'attaque directement au problème de la consommation énergétique, un enjeu majeur pour les systèmes autonomes déployés sur le terrain.
 
 **Technologies :** `C++` `ROS 2` `Architecture Logicielle` `Tests Unitaires (GTest)`
 
